@@ -23,7 +23,6 @@ CMakeFiles/main.dir/main.c.obj: \
  C:/mingw64/x86_64-w64-mingw32/include/stdint.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stddef.h \
  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
- C:\Users\IRON\Desktop\tdoa_c\GCC-PHAT\wave.h \
  C:\Users\IRON\Desktop\tdoa_c\GCC-PHAT\DelaySum.h \
  C:/mingw64/x86_64-w64-mingw32/include/math.h \
  C:\Users\IRON\Desktop\tdoa_c\GCC-PHAT\kiss_fftr.h \
