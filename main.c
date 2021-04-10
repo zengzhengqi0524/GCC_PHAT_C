@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-10 14:42:57
- * @LastEditTime: 2021-04-10 18:36:07
+ * @LastEditTime: 2021-04-10 19:42:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \GCC-PHAT\main.c
@@ -20,7 +20,7 @@ int main()
     int16_t samples = 4096;
     int32_t buffer[samples];
 
-    fp = fopen("C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\BIN\\Yaw270Pitch30.bin", "rb+");
+    fp = fopen("C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\bin\\Yaw270Pitch30.bin", "rb+");
     if (!fp)
     {
         printf("can't open file");
