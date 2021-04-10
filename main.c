@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-10 14:42:57
- * @LastEditTime: 2021-04-10 19:42:02
+ * @LastEditTime: 2021-04-10 19:53:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \GCC-PHAT\main.c
@@ -18,7 +18,8 @@ int main()
 {
     FILE *fp;
     int16_t samples = 4096;
-    int32_t buffer[samples];
+    int8_t N = 8;
+    int32_t buffer[samples * N];
 
     fp = fopen("C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\bin\\Yaw270Pitch30.bin", "rb+");
     if (!fp)
@@ -27,11 +28,9 @@ int main()
         exit(1);
     }
 
-    fread(buffer, 4, samples, fp);
+    fread(buffer, 4, samples* N, fp);
     fclose(fp);
     printf("read ok!");
-
-    int8_t N = 8;
 
     int32_t data[N][samples];
 
