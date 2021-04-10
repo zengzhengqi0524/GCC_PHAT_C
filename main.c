@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-10 14:42:57
- * @LastEditTime: 2021-04-10 22:23:39
+ * @LastEditTime: 2021-04-10 23:02:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \GCC-PHAT\main.c
@@ -69,7 +69,7 @@ int main()
     {
         for (uint16_t j = 0; j < samples; j++)
         {
-            *(data[i] + j) = (float)*(buffer + i + 8 * j)/2147483647;
+            *(data[i] + j) = (float)*(buffer + i + 8 * j) / 2147483647;
         }
     }
 
@@ -79,14 +79,14 @@ int main()
     float r = 0.04;
 
     float *yout = (float *)malloc(samples * sizeof(float));
-    for (uint16_t pitch = 0; pitch < 90; pitch=pitch+5)
+    for (uint16_t pitch = 0; pitch < 90; pitch = pitch + 5)
     {
-        for (uint16_t yaw = 0; yaw < 360; yaw=yaw+5)
+        for (uint16_t yaw = 0; yaw < 360; yaw = yaw + 5)
         {
             DelaySumURA(data, yout, fs, samples, N_FFT, WinLen, 256, r, yaw, pitch);
             for (uint16_t j = 0; j < samples; j++)
             {
-                E[pitch][yaw] =   E[pitch][yaw] + yout[j] * yout[j];
+                E[pitch][yaw] = E[pitch][yaw] + yout[j] * yout[j];
             }
         }
     }

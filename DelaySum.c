@@ -21,7 +21,7 @@
  * @return {delay-sum output}
  */
 
-int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16_t N, int16_t frameLength, int16_t inc, float r, int16_t angle,int16_t pitch)
+int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16_t N, int16_t frameLength, int16_t inc, float r, int16_t angle, int16_t pitch)
 {
 
     int16_t half_bin = (N_FFT / 2 + 1);
@@ -42,7 +42,7 @@ int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16
     float gamma[Nele] = {0, 45, 90, 135, 180, 225, 270, 315}; //麦克风位置
 
     /* calculate time delay tau*/
-    float *tao = CalculateTau(gamma,angle,pitch);
+    float *tao = CalculateTau(gamma, angle, pitch);
 
     /*Euler's formula e^ix = cos(x)+i*sin(x)*/
     for (int16_t k = 0; k < half_bin; k++)
@@ -156,7 +156,7 @@ int8_t Angle2Radian(float *gamma)
     else
         return -1;
 }
-float *CalculateTau(float *gamma, int16_t angle,int16_t pitch)
+float *CalculateTau(float *gamma, int16_t angle, int16_t pitch)
 {
     int16_t c = 340;
     float r = 0.04;
