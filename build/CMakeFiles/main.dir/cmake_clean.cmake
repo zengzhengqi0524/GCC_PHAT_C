@@ -7,8 +7,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/kiss_fftr.c.obj.d"
   "CMakeFiles/main.dir/main.c.obj"
   "CMakeFiles/main.dir/main.c.obj.d"
-  "CMakeFiles/main.dir/wave.c.obj"
-  "CMakeFiles/main.dir/wave.c.obj.d"
   "libmain.dll.a"
   "main.exe"
   "main.exe.manifest"

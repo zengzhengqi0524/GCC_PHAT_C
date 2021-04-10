@@ -224,30 +224,6 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.c.s
 .PHONY : main.c.s
 
-wave.obj: wave.c.obj
-.PHONY : wave.obj
-
-# target to build an object file
-wave.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/wave.c.obj
-.PHONY : wave.c.obj
-
-wave.i: wave.c.i
-.PHONY : wave.i
-
-# target to preprocess a source file
-wave.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/wave.c.i
-.PHONY : wave.c.i
-
-wave.s: wave.c.s
-.PHONY : wave.s
-
-# target to generate assembly for a file
-wave.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/wave.c.s
-.PHONY : wave.c.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -269,9 +245,6 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... wave.obj
-	@echo ... wave.i
-	@echo ... wave.s
 .PHONY : help
 
 

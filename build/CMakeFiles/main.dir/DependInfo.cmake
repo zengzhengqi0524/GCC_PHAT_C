@@ -12,7 +12,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/kiss_fft.c" "CMakeFiles/main.dir/kiss_fft.c.obj" "gcc" "CMakeFiles/main.dir/kiss_fft.c.obj.d"
   "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/kiss_fftr.c" "CMakeFiles/main.dir/kiss_fftr.c.obj" "gcc" "CMakeFiles/main.dir/kiss_fftr.c.obj.d"
   "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/main.c" "CMakeFiles/main.dir/main.c.obj" "gcc" "CMakeFiles/main.dir/main.c.obj.d"
-  "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/wave.c" "CMakeFiles/main.dir/wave.c.obj" "gcc" "CMakeFiles/main.dir/wave.c.obj.d"
   )
 
 # Targets to which this target links.
