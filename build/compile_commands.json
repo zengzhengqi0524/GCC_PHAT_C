@@ -1,0 +1,27 @@
+[
+{
+  "directory": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\main.dir\\DelaySum.c.obj -c C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\DelaySum.c",
+  "file": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/DelaySum.c"
+},
+{
+  "directory": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\main.dir\\kiss_fft.c.obj -c C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\kiss_fft.c",
+  "file": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/kiss_fft.c"
+},
+{
+  "directory": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\main.dir\\kiss_fftr.c.obj -c C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\kiss_fftr.c",
+  "file": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/kiss_fftr.c"
+},
+{
+  "directory": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\main.dir\\main.c.obj -c C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\main.c",
+  "file": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/main.c"
+},
+{
+  "directory": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\main.dir\\wave.c.obj -c C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\wave.c",
+  "file": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/wave.c"
+}
+]
