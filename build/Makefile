@@ -152,6 +152,54 @@ DelaySum.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/DelaySum.c.s
 .PHONY : DelaySum.c.s
 
+enframe.obj: enframe.c.obj
+.PHONY : enframe.obj
+
+# target to build an object file
+enframe.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/enframe.c.obj
+.PHONY : enframe.c.obj
+
+enframe.i: enframe.c.i
+.PHONY : enframe.i
+
+# target to preprocess a source file
+enframe.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/enframe.c.i
+.PHONY : enframe.c.i
+
+enframe.s: enframe.c.s
+.PHONY : enframe.s
+
+# target to generate assembly for a file
+enframe.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/enframe.c.s
+.PHONY : enframe.c.s
+
+hamming.obj: hamming.c.obj
+.PHONY : hamming.obj
+
+# target to build an object file
+hamming.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/hamming.c.obj
+.PHONY : hamming.c.obj
+
+hamming.i: hamming.c.i
+.PHONY : hamming.i
+
+# target to preprocess a source file
+hamming.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/hamming.c.i
+.PHONY : hamming.c.i
+
+hamming.s: hamming.c.s
+.PHONY : hamming.s
+
+# target to generate assembly for a file
+hamming.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/hamming.c.s
+.PHONY : hamming.c.s
+
 kiss_fft.obj: kiss_fft.c.obj
 .PHONY : kiss_fft.obj
 
@@ -236,6 +284,12 @@ help:
 	@echo ... DelaySum.obj
 	@echo ... DelaySum.i
 	@echo ... DelaySum.s
+	@echo ... enframe.obj
+	@echo ... enframe.i
+	@echo ... enframe.s
+	@echo ... hamming.obj
+	@echo ... hamming.i
+	@echo ... hamming.s
 	@echo ... kiss_fft.obj
 	@echo ... kiss_fft.i
 	@echo ... kiss_fft.s

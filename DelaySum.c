@@ -1,11 +1,6 @@
 
 #include "DelaySum.h"
-#include <stdint.h>
-#include <math.h>
-#include <stdlib.h>
 #include "hamming.h"
-#include "kiss_fft.h"
-#include "kiss_fftr.h"
 
 /**
  * @description: frequency-domain delay-sum beamformer using circular array
@@ -41,8 +36,9 @@ int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16
 
     float gamma[Nele] = {0, 45, 90, 135, 180, 225, 270, 315}; //麦克风位置
 
-    /* calculate time delay tau*/
-    float *tao = CalculateTau(gamma, angle, pitch);
+    /* calculate time delay */
+    float tao[Nele] ;
+    CalculateTau(gamma, tao,angle, pitch);
 
     /*Euler's formula e^ix = cos(x)+i*sin(x)*/
     for (int16_t k = 0; k < half_bin; k++)
@@ -53,21 +49,14 @@ int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16
         /* steering vector */
         for (int8_t i = 0; i < Nele; i++)
         {
-            if (k < 15 || k > 5000 * N / fs)
-            {
-                H[k][i].real = 1;
-                H[k][i].imag = 0;
-            }
-            else
-            {
+
                 double x = omega[k] * tao[i];
                 H[k][i].real = cos(x);
                 H[k][i].imag = -1 * sin(x);
-            }
         }
     }
 
-    double *frame_bin; //= (double *)malloc(frameLength*sizeof(double));
+
 
     kiss_fft_cpx cx_in[WinLen];
     kiss_fft_cpx cx_out[WinLen];
@@ -124,7 +113,8 @@ int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16
         /* concatenate signal */
         for (uint16_t j = i; j < WinLen; j++)
         {
-            yout[j] = yout[j] + sqrt(cx_out[j - i].r * cx_out[j - i].r + cx_out[j - i].i * cx_out[j - i].i);
+            //yout[j] = yout[j] + sqrt(cx_out[j - i].r * cx_out[j - i].r + cx_out[j - i].i * cx_out[j - i].i);
+            yout[j] = yout[j] + cx_out_real[j];
         }
     }
 
@@ -156,7 +146,7 @@ int8_t Angle2Radian(float *gamma)
     else
         return -1;
 }
-float *CalculateTau(float *gamma, int16_t angle, int16_t pitch)
+void CalculateTau(float *gamma,float *tao, int16_t angle, int16_t pitch)
 {
     int16_t c = 340;
     float r = 0.04;
@@ -167,11 +157,7 @@ float *CalculateTau(float *gamma, int16_t angle, int16_t pitch)
 
     for (int8_t i = 0; i < Nele; i++)
     {
-        double angle_diff = (angle_rad - gamma[i]);
-
-        gamma[i] = r * sin(pitch_rad) * cos(angle_diff) / c;
+        tao[i] = r * sin(pitch_rad) * cos(angle_rad- gamma[i])/ c;
     }
-
-    return gamma;
 
 } //

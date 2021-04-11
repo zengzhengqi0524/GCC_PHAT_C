@@ -86,6 +86,18 @@
 		<Unit filename="C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/DelaySum.h">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/enframe.c">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/enframe.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/hamming.c">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/hamming.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/kiss_fft.c">
 			<Option target="main"/>
 		</Unit>

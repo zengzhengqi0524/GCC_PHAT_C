@@ -1,8 +1,19 @@
-//
-// Created by IRON on 2021/4/11.
-//
+/*
+ * @Author: your name
+ * @Date: 2021-03-31 20:27:08
+ * @LastEditTime: 2021-04-11 12:35:34
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: c:\Users\IRON\Desktop\tdoa_c\GCC-PHAT\enframe.h
+ */
+#ifndef ENFRAME_H_
+#define ENFRAME_H_
 
-#ifndef MAIN_ENFRAME_H
-#define MAIN_ENFRAME_H
+#include <stdio.h>
+#include <math.h>
+#include <stdint.h>
 
-#endif //MAIN_ENFRAME_H
+void enframe(float *data, float **data_framed,int datalength, int winlength, int step);
+void showmatrix(float **result, int datalength, int winlength, int step);
+
+#endif

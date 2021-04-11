@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/DelaySum.c.obj"
   "CMakeFiles/main.dir/DelaySum.c.obj.d"
+  "CMakeFiles/main.dir/enframe.c.obj"
+  "CMakeFiles/main.dir/enframe.c.obj.d"
+  "CMakeFiles/main.dir/hamming.c.obj"
+  "CMakeFiles/main.dir/hamming.c.obj.d"
   "CMakeFiles/main.dir/kiss_fft.c.obj"
   "CMakeFiles/main.dir/kiss_fft.c.obj.d"
   "CMakeFiles/main.dir/kiss_fftr.c.obj"

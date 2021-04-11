@@ -6,6 +6,16 @@
 },
 {
   "directory": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\main.dir\\enframe.c.obj -c C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\enframe.c",
+  "file": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/enframe.c"
+},
+{
+  "directory": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\main.dir\\hamming.c.obj -c C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\hamming.c",
+  "file": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/hamming.c"
+},
+{
+  "directory": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build",
   "command": "C:\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\main.dir\\kiss_fft.c.obj -c C:\\Users\\IRON\\Desktop\\tdoa_c\\GCC-PHAT\\kiss_fft.c",
   "file": "C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/kiss_fft.c"
 },
