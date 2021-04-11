@@ -1,3 +1,0 @@
-C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build/CMakeFiles/edit_cache.dir
-C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build/CMakeFiles/main.dir
-C:/Users/IRON/Desktop/tdoa_c/GCC-PHAT/build/CMakeFiles/rebuild_cache.dir
