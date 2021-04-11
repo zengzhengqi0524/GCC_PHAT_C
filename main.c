@@ -1,15 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-10 14:42:57
- * @LastEditTime: 2021-04-10 23:47:17
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \GCC-PHAT\main.c
- */
-/*
- * @Author: your name
- * @Date: 2021-04-10 14:42:57
- * @LastEditTime: 2021-04-10 20:07:12
+ * @LastEditTime: 2021-04-11 14:36:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \GCC-PHAT\main.c
