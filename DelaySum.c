@@ -5,18 +5,18 @@
 /**
  * @description: frequency-domain delay-sum beamformer using circular array
  * @param { 
-            x : input signal ,samples * channel
+            framedata : input signal ,frame * channel
             fs: sample rate
-            N : fft length,frequency bin number
+            N : Channel number
             frameLength : frame length,usually same as N
-            inc : step increment
             r : array element radius
             angle : incident angle
+            pitch: pitch
             }
  * @return {delay-sum output}
  */
 
-int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16_t N, int16_t frameLength, int16_t inc, float r, int16_t angle, int16_t pitch)
+int16_t DelaySumURA(float **framedata, float *yout, uint16_t fs, int16_t N, int16_t frameLength, float r, int16_t angle, int16_t pitch)
 {
 
     int16_t half_bin = (N_FFT / 2 + 1);
@@ -49,7 +49,6 @@ int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16
         /* steering vector */
         for (int8_t i = 0; i < Nele; i++)
         {
-
                 double x = omega[k] * tao[i];
                 H[k][i].real = cos(x);
                 H[k][i].imag = -1 * sin(x);
@@ -62,27 +61,27 @@ int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16
     kiss_fft_cpx cx_out[WinLen];
     kiss_fft_cfg cfg = kiss_fft_alloc(N_FFT, 0, NULL, NULL);
 
-    for (int32_t i = 0; i < DataLen - WinLen * 2; i = i + inc)
-    {
+
 
         /* step 1: delay */
+        //N CHANNEL
         for (uint8_t n = 0; n < Nele; n++)
         {
 
-            for (uint16_t l = i; l < WinLen + i; l++)
+            for (uint16_t l =0; l < WinLen  ; l++)
             {
-                cx_in[l - i].r = x[n][l] * win[l - i];
-                cx_in[l - i].i = 0;
+                cx_in[l].r = framedata[n][l];
+                cx_in[l].i = 0;
             }
             kiss_fft(cfg, cx_in, cx_out);
-            for (uint16_t l = i; l < half_bin + i; l++)
+            for (uint16_t l =0; l < half_bin ; l++)
             {
                 /*
 				complex multiply :
 				(a+bi)*(c+di)=(ac-bd)+(ad+bc)i
 				*/
-                xk[l - i][n].real = cx_out[l - i].r * H[l - i][n].real - cx_out[l - i].i * H[l - i][n].imag;
-                xk[l - i][n].imag = cx_out[l - i].r * H[l - i][n].imag + cx_out[l - i].i * H[l - i][n].real;
+                xk[l][n].real = cx_out[l].r * H[l][n].real - cx_out[l].i * H[l][n].imag;
+                xk[l][n].imag = cx_out[l].r * H[l][n].imag + cx_out[l].i * H[l][n].real;
             }
         }
         /* step 2: sum */
@@ -111,12 +110,12 @@ int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16
         free(icfg);
 
         /* concatenate signal */
-        for (uint16_t j = i; j < WinLen; j++)
+        for (uint16_t j = 0; j < WinLen; j++)
         {
             //yout[j] = yout[j] + sqrt(cx_out[j - i].r * cx_out[j - i].r + cx_out[j - i].i * cx_out[j - i].i);
-            yout[j] = yout[j] + cx_out_real[j];
+            yout[j] = cx_out_real[j];
         }
-    }
+
 
     for (int16_t i = 0; i < half_bin; i++)
         free(H[i]);

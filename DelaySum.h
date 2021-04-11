@@ -32,7 +32,7 @@ extern "C"
         double imag;
     } Complex;
 
-    int16_t DelaySumURA(float **x, float *yout, uint16_t fs, uint32_t DataLen, int16_t N, int16_t frameLength, int16_t inc, float r, int16_t angle, int16_t pitch);
+    int16_t DelaySumURA(float **framedata, float *yout, uint16_t fs, int16_t N, int16_t frameLength, float r, int16_t angle, int16_t pitch);
     int8_t Angle2Radian(float *gamma);
     void CalculateTau(float *gamma, float *tao, int16_t angle, int16_t pitch);
 

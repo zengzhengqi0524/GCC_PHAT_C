@@ -61,9 +61,9 @@ int main()
 
     for (uint16_t i = 0; i < N; i++)
     {
-        for (uint16_t j = 0; j < samples; j++)
+        for (uint32_t j = 0; j < samples; j++)
         {
-            *(data[i] + j)= (float)*(buffer + i + 8 * j)/100000;
+            *(data[i] + j)= (float)*(buffer + i + 8 * j)/1000000;
         }
     }
     //分帧
@@ -107,36 +107,90 @@ int main()
     }
 
 
-    //debug
-    for (uint16_t k= 0;  k<winlength ; k++)
+//    //debug
+//    for (uint16_t k= 0;  k<winlength ; k++)
+//    {
+//        printf("%lf\n",*(*data_framed[1]+k));
+//    }
+
+
+
+    float E[90][360];
+    float r = 0.04;
+    //帧数据缓冲区
+    float *framedata[N];
+    for (uint16_t i = 0; i < N; i++)
     {
-        printf("%lf\n",*(*data_framed[1]+k));
+        framedata[i] = (float *)malloc(sizeof(float) * winlength);
     }
+    //接收数据内存
+    float *yout = (float *)malloc(winlength * sizeof(float));
+//空域扫描
+ for (uint16_t pitch = 90; pitch >0; pitch--)
+ {
+     for (uint16_t yaw = 0; yaw < 360; yaw++)
+     {
+         //多帧
+         for (uint16_t frame = 0; frame < 1; frame++)
+         {
+
+             //取出一帧数据
+             for(uint16_t i = 0; i < N; i++)
+             {
+                 for (uint16_t k= 0;  k<winlength ; k++)
+                 {
+                     *(framedata[i]+k) = *(*(data_framed[i]+frame)+k);
+                 }
+
+             }
+
+//             //DEBUG
+//             float temp[N][winlength];
+//             for(uint16_t i = 0; i < N; i++)
+//             {
+//                 for (uint16_t k= 0;  k<winlength ; k++)
+//                 {
+//                     temp[i][k] = *(framedata[i]+k);
+//                 }
+//
+//             }
+//             for (uint16_t k= 0;  k<winlength ; k++)
+//             {
+//                 printf("%lf\n",temp[2][k]);
+//             }
+//
+//             printf("/////////////frame:%d\n",frame);
+
+                // DSA计算
+
+             DelaySumURA(framedata[N], yout, fs,N,winlength, r, yaw, pitch);
+             //计算能量并多帧平均,还没实现
+//
+//             for (uint16_t j = 0; j < winlength; j++)
+//             {
+//                 E[pitch][yaw] = E[pitch][yaw]+ yout[j]*yout[j];
+//             }
+
+                //DEBUG
+                if(yaw == 90 && pitch == 90 && frame == 0)
+                {
+                    for (uint16_t j = 0; j < winlength; j++)
+                    {
+                        printf("%f\n",yout[j]);
+                    }
+                    printf("end\n");
+                }
 
 
 
-//    float E[90][360];
-//    float r = 0.04;
-//
-//    float *yout = (float *)malloc(samples * sizeof(float));
-// for (uint16_t pitch = 0; pitch < 90; pitch++)
-// {
-//     for (uint16_t yaw = 0; yaw < 360; yaw++)
-//     {
-//         DelaySumURA(data, yout, fs, samples, N_FFT, WinLen, 256, r, yaw, pitch);
-//         for (uint16_t j = 0; j < samples; j++)
-//         {
-//             E[pitch][yaw] = E[pitch][yaw]+ yout[j]*yout[j];
-//         }
-//
-//
-//         printf("pitch=%d,yaw=%d,E=%lf\n",pitch,yaw,E[pitch][yaw]);
-//     }
-// }
-//
-//    free(data);
-//    free(yout);
-//
+         }
+
+     }
+ }
+
+    free(data);
+    free(yout);
+
     getchar();
     return 0;
 }
